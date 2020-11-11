@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Dynamic;
 
 namespace Autopark
 {
@@ -12,8 +13,9 @@ namespace Autopark
         public string Year { get; set; }
         public Colors Colors { get; set; }
         public int Tank { get; set; }
+        public int Mileage { get; set; }
 
-        public Venicle(VenicleType venicleType, Engine engine, string modelName, string registrationNumber, int weight, string year, Colors colors, int tank)
+        public Venicle(VenicleType venicleType, Engine engine, string modelName, string registrationNumber, int weight, string year, Colors colors, int mileage, int tank)
         {
             Type = venicleType;
             Engine = engine;
@@ -23,6 +25,7 @@ namespace Autopark
             Year = year;
             Colors = colors;
             Tank = tank;
+            Mileage = mileage;
         }
 
         public Venicle() { }

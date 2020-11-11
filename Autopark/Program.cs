@@ -5,8 +5,7 @@ namespace Autopark
     class Program
     {
         static void Main(string[] args)
-        {        
-
+        {            
             VenicleType[] types = new VenicleType[] 
             { 
                 new VenicleType("Bus", 1.2), 
@@ -17,13 +16,13 @@ namespace Autopark
 
             Venicle[] venicles = new Venicle[]
             {
-                new Venicle(types[0],new GasolineEngine(2, 8.1) , "Volkswagen Crafter", "5427 AX-7", 2022, "2015", Colors.Blue, 376000),
-                new Venicle(types[0],new GasolineEngine(2.18, 8.5), "Volkswagen Crafter", "6427 AA-7", 2500, "2014", Colors.White, 376000),
-                new Venicle(types[0],new ElectricalEngine(50), "Electric Bus E321", "6785 BA-7", 12080, "2019", Colors.Green, 20451),
-                new Venicle(types[1],new DieselEngine(1.6, 7.2), "Golf 5", "8682 AX-7", 1200, "2006", Colors.Gray, 230451),
-                new Venicle(types[1],new ElectricalEngine(25), "Tesla Model S 70D", "E001 AA-7", 2200, "2019", Colors.White, 10454),
-                new Venicle(types[2],new DieselEngine(3.2, 25), "Hamm HD 12 VV", null, 2200, "2019", Colors.Yellow, 122),
-                new Venicle(types[3],new DieselEngine(4.75, 20.1), "МТЗ Беларус-1025.4", "1145 AB-7", 1200, "2020", Colors.Red, 109)
+                new Venicle(types[0],new GasolineEngine(2, 8.1) , "Volkswagen Crafter", "5427 AX-7", 2022, "2015", Colors.Blue, 376000, 75),
+                new Venicle(types[0],new GasolineEngine(2.18, 8.5), "Volkswagen Crafter", "6427 AA-7", 2500, "2014", Colors.White, 376000, 75),
+                new Venicle(types[0],new ElectricalEngine(50), "Electric Bus E321", "6785 BA-7", 12080, "2019", Colors.Green, 20451, 150),
+                new Venicle(types[1],new DieselEngine(1.6, 7.2), "Golf 5", "8682 AX-7", 1200, "2006", Colors.Gray, 230451, 55),
+                new Venicle(types[1],new ElectricalEngine(25), "Tesla Model S 70D", "E001 AA-7", 2200, "2019", Colors.White, 10454, 70),
+                new Venicle(types[2],new DieselEngine(3.2, 25), "Hamm HD 12 VV", null, 2200, "2019", Colors.Yellow, 122, 20),
+                new Venicle(types[3],new DieselEngine(4.75, 20.1), "МТЗ Беларус-1025.4", "1145 AB-7", 1200, "2020", Colors.Red, 109, 135)
             };
 
             types[types.Length - 1].Tax = 1.3;
@@ -61,6 +60,7 @@ namespace Autopark
                 Console.WriteLine(item.ToString());
             }
             Console.WriteLine("Level 3");
+            //output array with equal cars
             for (int i = 0; i < venicles.Length; i++)
             {
                 for (int j = i+1; j < venicles.Length; j++)

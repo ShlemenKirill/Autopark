@@ -1,20 +1,22 @@
 ﻿
 namespace Autopark
 {
-    class Engine
+    abstract class AbstractEngine
     {
         public string EngineName { get; set; }
         public double TaxEngineType { get; set; }
 
-        public Engine(string engineName, double taxEngyneType) 
+        public AbstractEngine(string engineName, double taxEngyneType) 
         {
             EngineName = engineName;
             TaxEngineType = taxEngyneType;
         }
+
+        public abstract double GetMaxKilometers(double fuelTank);
         
     }
 
-    class ElectricalEngine : Engine
+    class ElectricalEngine : AbstractEngine
     {
         public double ElectricityConsumption { get; set; }
 
@@ -23,24 +25,28 @@ namespace Autopark
             ElectricityConsumption = electricityConsumption;
         }
 
-        public double GetMaxKilometers(double batterySize)
+        public override double GetMaxKilometers(double batterySize)
         {
             return batterySize / ElectricityConsumption;    
         }
     }
 
-    class CombustionEngine : Engine
+    abstract class AbstractCombustionEngine : AbstractEngine
     {
         public double EngineCapacity { get; set; }
         public double FuelConsumption { get; set; }
 
-        public CombustionEngine(string typeName, double taxCoefficient) :base(typeName, taxCoefficient)
+        public AbstractCombustionEngine(string typeName, double taxCoefficient) :base(typeName, taxCoefficient)
         { 
             
         }
+        public override double GetMaxKilometers(double fuelTankCapacity)
+        {
+            return fuelTankCapacity / FuelConsumption * 100;
+        }
     }
 
-    class GasolineEngine : CombustionEngine
+    class GasolineEngine : AbstractCombustionEngine
     {
         public GasolineEngine(double engineCapacity, double fuelConsumption) : base("Gasoline", 1)
         {
@@ -49,7 +55,7 @@ namespace Autopark
         }
     }
 
-    class DieselEngine : CombustionEngine
+    class DieselEngine : AbstractCombustionEngine
     {
         public DieselEngine(double engineCapacity, double fuelConsumption) : base("Diesel", 1.2)
         {

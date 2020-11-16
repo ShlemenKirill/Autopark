@@ -6,7 +6,7 @@ namespace Autopark
     class Venicle : IComparable<Venicle>
     {
         public VenicleType Type { get; set; }
-        public Engine Engine { get; set; }
+        public AbstractEngine Engine { get; set; }
         public string ModelName { get; set; }
         public string RegistrationNumber { get; set; }
         public int Weight { get; set; }
@@ -15,7 +15,7 @@ namespace Autopark
         public int Tank { get; set; }
         public int Mileage { get; set; }
 
-        public Venicle(VenicleType venicleType, Engine engine, string modelName, string registrationNumber, int weight, string year, Colors colors, int mileage, int tank)
+        public Venicle(VenicleType venicleType, AbstractEngine engine, string modelName, string registrationNumber, int weight, string year, Colors colors, int mileage, int tank)
         {
             Type = venicleType;
             Engine = engine;

@@ -37,17 +37,20 @@ namespace Autopark
                 }
                 sumTax += item.Tax;
             }
-            Console.WriteLine();
+            Console.WriteLine(new string('-', 20));
             Console.WriteLine($"Max Tax = {maxTax}");
             Console.WriteLine($"Average Tax = {sumTax/types.Length}");
 
             //output array with foreach and ToString()
-            Console.WriteLine();
+            Console.WriteLine(new string('-',20));
             foreach (VenicleType item in types)
             {
                 Console.WriteLine(item.ToString());                
             }
+
+            Console.WriteLine(new string('-', 20));
             Console.WriteLine("Level 2");
+            Console.WriteLine(new string('-', 20));
             foreach (Venicle item in venicles)
             {
                 Console.WriteLine(item.ToString());
@@ -59,7 +62,10 @@ namespace Autopark
             {
                 Console.WriteLine(item.ToString());
             }
+
+            Console.WriteLine(new string('-', 20));
             Console.WriteLine("Level 3");
+            Console.WriteLine(new string('-', 20));
             //output array with equal cars
             for (int i = 0; i < venicles.Length; i++)
             {
@@ -71,13 +77,36 @@ namespace Autopark
                     }
                     if (venicles[i].Equals(venicles[j]))
                     {
-                        Console.WriteLine("Equals");
+                        Console.WriteLine("These cars are equals:");
                         Console.WriteLine(venicles[i]);
                         Console.WriteLine(venicles[j]);
                     }
                 }
                 
             }
+
+            Console.WriteLine(new string('-', 20));
+            Console.WriteLine("Level 4");
+            Console.WriteLine(new string('-', 20));
+
+            foreach (Venicle item in venicles)
+            {
+                Console.WriteLine(item.ToString());
+            }
+            
+            double maxDistance = venicles[0].Engine.GetMaxKilometers(venicles[0].Tank);
+            int index = 0;
+            for (int i = 0; i < venicles.Length; i++)
+            {
+                if (venicles[i].Engine.GetMaxKilometers(venicles[i].Tank) > maxDistance)
+                {
+                    maxDistance = venicles[i].Engine.GetMaxKilometers(venicles[i].Tank);
+                    index = i;
+                }
+            }
+            Console.WriteLine($"Max distance = {maxDistance.ToString("0.00")} kilometers");
+            Console.WriteLine($"Car that can travel the maximum distance: {venicles[index]}");
+            
         }
     }        
 }

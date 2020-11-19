@@ -7,11 +7,14 @@ namespace Autopark
         public string Type { get; set; }
 
         public double Tax { get; set; }
+        public int Id { get; set; }
 
-        public VenicleType(string venType, double venTax)
+        public VenicleType(int id, double venTax, string venType)
+
         {
+            Id = id;
             Type = venType;
-            Tax = venTax;
+            Tax = venTax;            
         }
 
         public VenicleType() { }

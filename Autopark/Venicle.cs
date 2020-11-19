@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Dynamic;
 
 namespace Autopark
 {
     class Venicle : IComparable<Venicle>
     {
+        public int Id { get; set; }
         public VenicleType Type { get; set; }
         public AbstractEngine Engine { get; set; }
         public string ModelName { get; set; }
@@ -13,10 +15,12 @@ namespace Autopark
         public string Year { get; set; }
         public Colors Colors { get; set; }
         public int Tank { get; set; }
-        public int Mileage { get; set; }
+        public int Mileage { get; set; }        
+        public List<Rent> ListRent { get; set; }
 
-        public Venicle(VenicleType venicleType, AbstractEngine engine, string modelName, string registrationNumber, int weight, string year, Colors colors, int mileage, int tank)
+        public Venicle(int id, VenicleType venicleType, AbstractEngine engine, string modelName, string registrationNumber, int weight, string year, Colors colors, int mileage, int tank, List<Rent> listRent)
         {
+            Id = id;
             Type = venicleType;
             Engine = engine;
             ModelName = modelName;
@@ -26,6 +30,7 @@ namespace Autopark
             Colors = colors;
             Tank = tank;
             Mileage = mileage;
+            ListRent = listRent;
         }
 
         public Venicle() { }
@@ -57,6 +62,24 @@ namespace Autopark
             Venicle venicle = (Venicle)obj;
 
             return (this.Type == venicle.Type) && (this.ModelName == venicle.ModelName);
+        }
+
+        public double GetTotalIncome()
+        {
+            double totalIncome = 0;            
+            
+            foreach (Rent item in ListRent)
+            {
+                totalIncome += item.RentCost;
+            }
+
+            return totalIncome;
+
+        }
+
+        public double GetTotalProfit()
+        {
+            return GetTotalIncome() - GetCalcTaxPerMounth();
         }
 
     }

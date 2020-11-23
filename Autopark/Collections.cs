@@ -189,8 +189,7 @@ namespace Autopark
             
         }
         public void Sort(IComparer<Venicle> comparator)
-        {
-            comparator = new Comparer();
+        {            
             for (int i = 0; i < ListVenicle.Count(); i++)
             {
                 for (int j = 1; j < ListVenicle.Count() -1; j++)

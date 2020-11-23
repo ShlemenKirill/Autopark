@@ -108,19 +108,27 @@ namespace Autopark
             //Console.WriteLine($"Max distance = {maxDistance.ToString("0.00")} kilometers");
             //Console.WriteLine($"Car that can travel the maximum distance: {venicles[index]}");
 
+            //Console.WriteLine(new string('-', 20));
+            //Console.WriteLine("Level 5");
+            //Console.WriteLine(new string('-', 20));
+
+            //Collections collections = new Collections(@"C:\Users\Кирилл\source\repos\Autopark\Autopark\types.csv", @"C:\Users\Кирилл\source\repos\Autopark\Autopark\venicles.csv", @"C:\Users\Кирилл\source\repos\Autopark\Autopark\rents.csv");
+            //collections.Print();
+            //collections.ListVenicle.Add(new Venicle(8, new VenicleType(2, 43, "Car"), new GasolineEngine(2.0, 8.6), "BMW", "7777-IK7", 2220, "2020", Colors.Red, 9900, 45, new List<Rent>()));
+            //collections.Delete(1);
+            //collections.Delete(4);
+            //collections.Print();
+            //Comparer comparer = new Comparer();
+            //collections.Sort(comparer);
+            //collections.Print();
+            //Console.WriteLine("");
+
             Console.WriteLine(new string('-', 20));
-            Console.WriteLine("Level 5");
+            Console.WriteLine("Level 6");
             Console.WriteLine(new string('-', 20));
 
-            Collections collections = new Collections(@"C:\Users\Кирилл\source\repos\Autopark\Autopark\types.csv", @"C:\Users\Кирилл\source\repos\Autopark\Autopark\venicles.csv", @"C:\Users\Кирилл\source\repos\Autopark\Autopark\rents.csv");
-            collections.Print();
-            collections.ListVenicle.Add(new Venicle(8, new VenicleType(2, 43, "Car"), new GasolineEngine(2.0, 8.6), "BMW", "7777-IK7", 2220, "2020", Colors.Red, 9900, 45, new List<Rent>()));
-            collections.Delete(1);
-            collections.Delete(4);
-            collections.Print();
-            Comparer comparer = new Comparer();
-            collections.Sort(comparer);
-            collections.Print();
+            CarWash carWash = new CarWash();
+            carWash.WashCars();
 
         }
     }        

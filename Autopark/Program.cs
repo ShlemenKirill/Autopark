@@ -123,12 +123,20 @@ namespace Autopark
             //collections.Print();
             //Console.WriteLine("");
 
+            //Console.WriteLine(new string('-', 20));
+            //Console.WriteLine("Level 6");
+            //Console.WriteLine(new string('-', 20));
+
+            //CarWash carWash = new CarWash();
+            //carWash.WashCars();
+
             Console.WriteLine(new string('-', 20));
-            Console.WriteLine("Level 6");
+            Console.WriteLine("Level 7");
             Console.WriteLine(new string('-', 20));
 
-            CarWash carWash = new CarWash();
-            carWash.WashCars();
+            Garage garage = new Garage();
+            garage.DriveIntoGarage();
+            garage.DriveOutGarage();
 
         }
     }        

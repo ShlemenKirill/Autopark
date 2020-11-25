@@ -130,14 +130,20 @@ namespace Autopark
             //CarWash carWash = new CarWash();
             //carWash.WashCars();
 
-            Console.WriteLine(new string('-', 20));
-            Console.WriteLine("Level 7");
-            Console.WriteLine(new string('-', 20));
+            //Console.WriteLine(new string('-', 20));
+            //Console.WriteLine("Level 7");
+            //Console.WriteLine(new string('-', 20));
 
-            Garage garage = new Garage();
-            garage.DriveIntoGarage();
-            garage.DriveOutGarage();
+            //Garage garage = new Garage();
+            //garage.DriveIntoGarage();
+            //garage.DriveOutGarage();
 
+            Console.WriteLine(new string('-', 20));
+            Console.WriteLine("Level 8");
+            Console.WriteLine(new string('-', 20));
+            Dictionary dictionary = new Dictionary(@"C:\Users\Кирилл\source\repos\Autopark\Autopark\orders.csv");        
+            
+            dictionary.PrintDictionary();
         }
     }        
 }

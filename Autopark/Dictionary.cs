@@ -16,8 +16,6 @@ namespace Autopark
             DetailList = LoadList(csvFile);
             CreateDictionary();
         }
-
-
         public string[] LoadList(string inFile)
         {
             string[] detailList = new string[] { };
@@ -35,6 +33,7 @@ namespace Autopark
 
                 Console.WriteLine($"Error! File {inFile} is not found!");
             }
+
             return detailList;
         }
         
@@ -46,6 +45,7 @@ namespace Autopark
             {
                 bool IsExsist = false;
                 int counter = 1;
+
                 for (int j = i+1; j < DetailList.Length; j++)
                 {
                     if (DetailList[i] == DetailList[j])

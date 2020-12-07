@@ -8,8 +8,9 @@ namespace Autopark
         static void Main(string[] args)
         {
             Console.WriteLine(new string('-', 20));
-            Console.WriteLine("Level 1");
+            Console.WriteLine("Level 1: Classes");
             Console.WriteLine(new string('-', 20));
+
             VenicleType[] types = new VenicleType[]
             {
                 new VenicleType(1, 1.2,"Bus"),
@@ -32,6 +33,7 @@ namespace Autopark
             types[types.Length - 1].Tax = 1.3;
             double maxTax = types[0].Tax;
             double sumTax = 0;
+
             foreach (VenicleType item in types)
             {
                 item.Display();
@@ -41,6 +43,7 @@ namespace Autopark
                 }
                 sumTax += item.Tax;
             }
+
             Console.WriteLine(new string('-', 20));
             Console.WriteLine($"Max Tax = {maxTax}");
             Console.WriteLine($"Average Tax = {sumTax / types.Length}");
@@ -53,8 +56,9 @@ namespace Autopark
             }
 
             Console.WriteLine(new string('-', 20));
-            Console.WriteLine("Level 2");
+            Console.WriteLine("Level 2 : OOP.Interfaces");
             Console.WriteLine(new string('-', 20));
+
             foreach (Venicle item in venicles)
             {
                 Console.WriteLine(item.ToString());
@@ -62,13 +66,14 @@ namespace Autopark
 
             Console.WriteLine();
             Array.Sort(venicles);
+
             foreach (Venicle item in venicles)
             {
                 Console.WriteLine(item.ToString());
             }
 
             Console.WriteLine(new string('-', 20));
-            Console.WriteLine("Level 3");
+            Console.WriteLine("Level 3: Inheritance");
             Console.WriteLine(new string('-', 20));
 
             //output array with equal cars
@@ -80,6 +85,7 @@ namespace Autopark
                     {
                         continue;
                     }
+
                     if (venicles[i].Equals(venicles[j]))
                     {
                         Console.WriteLine("These cars are equals:");
@@ -91,7 +97,7 @@ namespace Autopark
             }
 
             Console.WriteLine(new string('-', 20));
-            Console.WriteLine("Level 4");
+            Console.WriteLine("Level 4: Abstraction");
             Console.WriteLine(new string('-', 20));
 
             foreach (Venicle item in venicles)
@@ -113,10 +119,10 @@ namespace Autopark
             Console.WriteLine($"Car that can travel the maximum distance: {venicles[index]}");
 
             Console.WriteLine(new string('-', 20));
-            Console.WriteLine("Level 5");
+            Console.WriteLine("Level 5: Custom Collection");
             Console.WriteLine(new string('-', 20));
 
-            Collections collections = new Collections(@"C:\Users\Кирилл\source\repos\Autopark\Autopark\types.csv", @"C:\Users\Кирилл\source\repos\Autopark\Autopark\venicles.csv", @"C:\Users\Кирилл\source\repos\Autopark\Autopark\rents.csv");
+            Collections collections = new Collections(@"types.csv", @"venicles.csv", @"rents.csv");
             collections.Print();
             collections.ListVenicle.Add(new Venicle(8, new VenicleType(2, 43, "Car"), new GasolineEngine(2.0, 8.6), "BMW", "7777-IK7", 2220, "2020", Colors.Red, 9900, 45, new List<Rent>()));
             collections.Delete(1);
@@ -124,18 +130,17 @@ namespace Autopark
             collections.Print();
             Comparer comparer = new Comparer();
             collections.Sort(comparer);
-            collections.Print();
-            Console.WriteLine("");
+            collections.Print();            
 
             Console.WriteLine(new string('-', 20));
-            Console.WriteLine("Level 6");
+            Console.WriteLine("Level 6: Queue");
             Console.WriteLine(new string('-', 20));
 
             CarWash carWash = new CarWash();
             carWash.WashCars();
 
             Console.WriteLine(new string('-', 20));
-            Console.WriteLine("Level 7");
+            Console.WriteLine("Level 7: Stack");
             Console.WriteLine(new string('-', 20));
 
             Garage garage = new Garage();
@@ -143,10 +148,10 @@ namespace Autopark
             garage.DriveOutGarage();
 
             Console.WriteLine(new string('-', 20));
-            Console.WriteLine("Level 8");
+            Console.WriteLine("Level 8: Dictionary");
             Console.WriteLine(new string('-', 20));
-            Dictionary dictionary = new Dictionary(@"C:\Users\Кирилл\source\repos\Autopark\Autopark\orders.csv");        
-            
+
+            Dictionary dictionary = new Dictionary(@"orders.csv");   
             dictionary.PrintDictionary();
         }
     }        

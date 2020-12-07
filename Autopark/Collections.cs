@@ -27,6 +27,7 @@ namespace Autopark
                 using (StreamReader sr = new StreamReader(inFile, Encoding.Default))
                 {
                     string line;
+
                     while ((line = sr.ReadLine()) != null)
                     {
                         listVenicleType.Add(CreateType(line));
@@ -49,6 +50,7 @@ namespace Autopark
                 using (StreamReader sr = new StreamReader(inFile, Encoding.Default))
                 {
                     string line;
+
                     while ((line = sr.ReadLine()) != null)
                     {
                         listVenicle.Add(CreateVenicle(line));
@@ -71,6 +73,7 @@ namespace Autopark
                 using (StreamReader sr = new StreamReader(inFile, Encoding.Default))
                 {
                     string line;
+
                     while ((line = sr.ReadLine()) != null)
                     {
                         string[] field = line.Split(';');
@@ -108,6 +111,7 @@ namespace Autopark
             Colors color = (Colors)Enum.Parse(typeof(Colors), line[7]);
             List<VenicleType> types = LoadTypes(@"C:\Users\Кирилл\source\repos\Autopark\Autopark\types.csv");
             VenicleType venicleType = null;
+
             foreach (var item in types)
             {                
                 if (item.Id == int.Parse(line[1]))
@@ -153,6 +157,7 @@ namespace Autopark
             {
                 totalProfit += item.GetTotalProfit();
             }
+
             return totalProfit;
         }
         public void Print()
@@ -169,6 +174,7 @@ namespace Autopark
                     "Income",
                     "Tax",
                     "Profit"));
+
             foreach (var item in ListVenicle)
             {
                 Console.WriteLine(string.Format("{0, -5}{1, -10}{2, -25}{3, -15}{4, -15}{5, -10}{6, -10}{7, -10}{8, -10}{9, -10}{10, -10}", 
@@ -184,9 +190,8 @@ namespace Autopark
                     item.GetCalcTaxPerMounth().ToString("0.00"),
                     item.GetTotalProfit().ToString("0.00")));
             }
-            Console.WriteLine(string.Format("{0, -120}{1, -10}", "Total", SumTotalProfit().ToString("0.00")));
-            
-            
+
+            Console.WriteLine(string.Format("{0, -120}{1, -10}", "Total", SumTotalProfit().ToString("0.00")));           
         }
         public void Sort(IComparer<Venicle> comparator)
         {            

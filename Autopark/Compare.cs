@@ -12,14 +12,17 @@ namespace Autopark
             int firsLetterX = venicleX[0];
             var venicleY = y.ModelName.ToCharArray();
             int firsLetterY = venicleY[0];
+
             if (firsLetterX < firsLetterY)
             {
                 return 1;
             }
+
             if (firsLetterX > firsLetterY)
             {
                 return -1;
             }
+
             return 0;
         }
     }

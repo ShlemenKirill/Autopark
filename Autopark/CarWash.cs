@@ -11,6 +11,7 @@ namespace Autopark
         public void WashCars()
         {
             Collections collections = new Collections(@"C:\Users\Кирилл\source\repos\Autopark\Autopark\types.csv", @"C:\Users\Кирилл\source\repos\Autopark\Autopark\venicles.csv", @"C:\Users\Кирилл\source\repos\Autopark\Autopark\rents.csv");
+            
             for (int i = 0; i < collections.ListVenicle.Count(); i++)
             {
                 Enqueue(collections.ListVenicle[i]);
@@ -25,10 +26,12 @@ namespace Autopark
             {                
                 Dequeue();
                 Console.WriteLine(new string('-', 20));
+                
                 foreach (var item in venicles)
                 {
                     Console.WriteLine($"Car {item.ModelName}, {item.RegistrationNumber} in queue to car wash");
                 }
+
                 if (venicles.Length == 0)
                 {
                     Console.WriteLine("No cars in queue to car wash!");
@@ -56,11 +59,13 @@ namespace Autopark
         public void Dequeue()
         { 
             Venicle[] temp = new Venicle[venicles.Length - 1];
-            venicles[0] = null;            
+            venicles[0] = null;
+            
             for (int i = 0; i < venicles.Length - 1; i++)
             {
                 temp[i] = venicles[i + 1];
             }
+
             venicles = temp;            
         }
     }

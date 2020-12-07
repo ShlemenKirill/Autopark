@@ -5,17 +5,13 @@ namespace Autopark
     {
         public string EngineName { get; set; }
         public double TaxEngineType { get; set; }
-
         public AbstractEngine(string engineName, double taxEngyneType) 
         {
             EngineName = engineName;
             TaxEngineType = taxEngyneType;
         }
-
-        public abstract double GetMaxKilometers(double fuelTank);
-        
+        public abstract double GetMaxKilometers(double fuelTank);        
     }
-
     class ElectricalEngine : AbstractEngine
     {
         public double ElectricityConsumption { get; set; }
@@ -24,7 +20,6 @@ namespace Autopark
         {
             ElectricityConsumption = electricityConsumption;
         }
-
         public override double GetMaxKilometers(double batterySize)
         {
             return batterySize / ElectricityConsumption;    
@@ -35,7 +30,6 @@ namespace Autopark
     {
         public double EngineCapacity { get; set; }
         public double FuelConsumption { get; set; }
-
         public AbstractCombustionEngine(string typeName, double taxCoefficient) :base(typeName, taxCoefficient)
         { 
             
